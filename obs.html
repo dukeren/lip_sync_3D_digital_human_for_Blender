@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBS WebSocket 客户端</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #status {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>OBS WebSocket 客户端</h1>
+    <button id="connectBtn">连接到 OBS</button>
+    <button id="getSceneBtn" disabled>获取当前场景</button>
+    <div id="status"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/obs-websocket-js"></script>
+    <script>
+        const connectBtn = document.getElementById('connectBtn');
+        const getSceneBtn = document.getElementById('getSceneBtn');
+        const status = document.getElementById('status');
+        const obs = new OBSWebSocket();
+
+        connectBtn.addEventListener('click', async () => {
+            try {
+                const { obsWebSocketVersion, negotiatedRpcVersion } = await obs.connect('ws://localhost:4455', 'your-password-here');
+                status.textContent = `已连接到 OBS WebSocket (v${obsWebSocketVersion}) 使用 RPC ${negotiatedRpcVersion}`;
+                getSceneBtn.disabled = false;
+
+                obs.on('StreamStateChanged', data => {
+                    status.textContent += `\n直播状态: ${data.outputState}`;
+                });
+            } catch (error) {
+                status.textContent = `连接失败: ${error.message}`;
+            }
+        });
+
+        getSceneBtn.addEventListener('click', async () => {
+            try {
+                const { currentProgramSceneName } = await obs.call('GetCurrentProgramScene');
+                status.textContent += `\n当前场景: ${currentProgramSceneName}`;
+            } catch (error) {
+                status.textContent += `\n获取场景失败: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>

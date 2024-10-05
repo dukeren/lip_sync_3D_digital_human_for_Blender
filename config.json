@@ -1,0 +1,19 @@
+{
+    "openai": {
+      "api_key": "your-openai-api-key"
+    },
+    "ollama": {
+      "url": "http://localhost:11434/api/generate",
+      "model": "llama3.1"
+    },
+    "dify": {
+      "url": "http://localhost/v1/chat-messages",
+      "api_key": "app-4Pn5yIiMSw1ReQNtZoicGZ0O"
+    },
+    "whisper": {
+      "url": "http://localhost:9000/asr"
+    },
+    "chattts": {
+      "url": "http://127.0.0.1:9966/tts"
+    }
+  }
