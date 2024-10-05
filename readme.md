@@ -16,6 +16,7 @@ Blender4.2实时渲染器EEVEE的更新，为Lip sync & 3D digital human的实�
 - 全程介入  
 	- 从语音转文本，文本内容生成，文本转语音，唇形同步动画……每一步，都可以介入；而且，可跳过执行过程，直接通过语音、文字实现动画生成。  
 ### 三、Lip Sync的原理/ 流程
+![Lip Sync流程图](https://github.com/dukeren/lip_sync_3D_digital_human_for_Blender/blob/main/bg/Lip%20Sync%20Flow.svg "Lip Sync流程图")
 
 ![[Lip Sync.svg]]
 在此，非常感谢大佬@阴沉的怪咖，生成原理基本参考了他的[[chatgpt+unity]二次元AI女友合集](https://www.bilibili.com/video/BV1CT411X7Dm/ "[chatgpt+unity]二次元AI女友合集")。
@@ -154,8 +155,13 @@ GitHub下载地址: [https://github.com/jianchang512/ChatTTS-ui/releases/downlo
 #### 1、前提
 至少有A、I、U、O、E五个基础口型形态键。
 #### 2、模型来源
-HumGen3D  
-Blender卡通家族3D角色生成器  
+- Blender插件
+	- HumGen3D  
+	- Blender卡通家族3D角色生成器  
+- 其它软件
+	- VRoid Studio
+	- MakeHuman
+	- DAZ
 
 
 ## 第三部分 基础使用
@@ -231,4 +237,6 @@ Blender卡通家族3D角色生成器
 5. 背景音乐音量  
     - 使用滑块调节背景音乐的音量，范围从0（静音）到1（最大音量）。  
 6. LipSync对象  
-    - 从下拉菜单中选择要应用唇形同步的3D模型对象。这个对象应该包含用于唇形同步的形态键。  
+    - 从下拉菜单中选择要应用唇形同步的3D模型对象。这个对象应该包含用于唇形同步的形态键。 
+## All In AI 微信交流群
+![All In AI微信交流群](https://github.com/dukeren/lip_sync_3D_digital_human_for_Blender/blob/main/bg/Wechat.jpg "All In AI微信交流群")
