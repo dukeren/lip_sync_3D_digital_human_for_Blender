@@ -4,16 +4,16 @@
 ### 一、Lip Sync是什么？
 Lip sync & 3D digital human是一款Blender专用的插件，通过3D对象，实现实时唇形同步，与动画操作，达到虚拟数字人的效果。
 ### 二、Lip Sync特点
-目前，市场上有许多的3D虚拟人，为什么还要开发这样一个插件？
-Blender4.2实时渲染器EEVEE的更新，为Lip sync & 3D digital human的实现提供了可能，同Unity、UE一样，实现实时渲染。
-免费开源
-	Blender的开源性
-	插件代码的开源性
-形象定制
-	3D形象角色的定制性
-	内容生成的定制性
-全程介入
-	从语音转文本，文本内容生成，文本转语音，唇形同步动画……每一步，都可以介入；而且，可跳过执行过程，直接通过语音、文字实现动画生成。
+目前，市场上有许多的3D虚拟人，为什么还要开发这样一个插件？  
+Blender4.2实时渲染器EEVEE的更新，为Lip sync & 3D digital human的实现提供了可能，同Unity、UE一样，实现实时渲染。  
+免费开源  
+	Blender的开源性  
+	插件代码的开源性  
+形象定制  
+	3D形象角色的定制性  
+	内容生成的定制性  
+全程介入  
+	从语音转文本，文本内容生成，文本转语音，唇形同步动画……每一步，都可以介入；而且，可跳过执行过程，直接通过语音、文字实现动画生成。  
 ### 三、Lip Sync的原理/ 流程
 
 ![[Lip Sync.svg]]
@@ -28,16 +28,16 @@ Blender4.2实时渲染器EEVEE的更新，为Lip sync & 3D digital human的实�
 	openai（Api调用）
 	librosa（音素提取）
 #### 1、Windows命令行安装
-打开Python控制台（反馈结果在Window - Toggle System Console）中
+##### A、打开Python控制台（反馈结果在Window - Toggle System Console）中
 ```
 import sys
 print(sys.executable)
 ```
-安装openai依赖库（注意：Windows CMD下）
+##### B、安装openai依赖库（注意：Windows CMD下）
 ```
 "D:\Program Files\blender-4.3.0-alpha+main.1ede471ba2b5-windows.amd64-release\4.3\python\bin\python.exe" -m pip install openai
 ```
-安装librosa依赖库
+##### C、安装librosa依赖库
 ```
 "D:\Program Files\blender-4.3.0-alpha+main.1ede471ba2b5-windows.amd64-release\4.3\python\bin\python.exe" -m pip install librosa
 ```
@@ -53,13 +53,13 @@ import librosa
 print(librosa.__version__)
 ```
 #### 2、Python控制器安装
-openai
+##### A、openai
 ```
 import subprocess
 import sys
 subprocess.check_call([sys.executable, "-m", "pip", "install", "openai"])
 ```
-librosa
+##### B、librosa
 ```
 import subprocess
 import sys
@@ -153,13 +153,15 @@ generated_content
 #### 五、3D模型准备
 至少有A、I、U、O、E五个基础口型形态键。
 模型来源
+HumGen3D
+Blender卡通家族3D角色生成器
 #### Blender插件
 
 ## 第三部分 基础使用
 ### 一、外部大模型启用
-	运行whisper-asr-webservice）
-	运行Ollama（Dify、OpenAI……）
-	运行ChatTTS-ui
+#### 1、运行whisper-asr-webservice）
+#### 2、运行Ollama（Dify、OpenAI……）
+#### 3、运行ChatTTS-ui
 ### 二、界面及功能简介
 三个选项页：内容生成、动画生成、视频同步
 #### 1、内容生成
